@@ -5,11 +5,12 @@ const cancelButton = document.querySelector('#upload-cancel');
 const fileField = document.querySelector('#upload-file');
 const hashtagField = document.querySelector('.text__hashtags');
 const commentField = document.querySelector('.text__description');
+const modal = document.querySelector('.modal-open');
 
 const MAX_HASHTAG_COUNT = 5;
 const MIN_HASHTAG_LENGTH = 2;
 const MAX_HASHTAG_LENGTH = 20;
-const UNVALID_SYMBOLS = /[^a-zA-Z0-9а-яА-ЯёЁ]/g;
+const INVALID_SYMBOLS = /[^a-zA-Z0-9а-яА-ЯёЁ]/g;
 
 const pristine = new Pristine(form, {
   classTo: 'img-upload__element',
@@ -23,13 +24,21 @@ const showModal = () => {
   document.addEventListener('keydown', onEscKeyDown);
 };
 
-const hideModal = () => {
+export const hideModal = () => {
   form.reset();
   pristine.reset();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onEscKeyDown);
 };
+
+if (modal) {
+  modal.addEventListener('click', (evt) => {
+    evt.stopPropagation();
+    overlay.classList.add('hidden');
+    body.classList.remove('modal-open');
+  });
+}
 
 const isTextFieldFocused = () =>
   document.activeElement === hashtagField ||
@@ -55,7 +64,7 @@ const startsWithHash = (tag) => tag[0] === '#';
 const hasValidLength = (tag) =>
   tag.length >= MIN_HASHTAG_LENGTH && tag.length <= MAX_HASHTAG_LENGTH;
 
-const hasValidSymbols = (tag) => !UNVALID_SYMBOLS.test(tag.slice(1));
+const hasValidSymbols = (tag) => !INVALID_SYMBOLS.test(tag.slice(1));
 
 const isValidTag = (tag) =>
   startsWithHash(tag) && hasValidLength(tag) && hasValidSymbols(tag);

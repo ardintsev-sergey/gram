@@ -46,13 +46,13 @@ const renderComments = (comments) => {
   });
 };
 
-const hideBigPicture = () => {
+export const hideBigPicture = () => {
   bigPicture.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onEscKeyDown);
 };
 
-function onEscKeyDown(evt) {
+export function onEscKeyDown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
     hideBigPicture();

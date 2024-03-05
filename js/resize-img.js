@@ -1,5 +1,5 @@
 const smallerBtn = document.querySelector('.scale__control--smaller');
-const biigerBtn = document.querySelector('.scale__control--bigger');
+const biggerBtn = document.querySelector('.scale__control--bigger');
 const sizeValue = document.querySelector('.scale__control--value');
 const imgPreview = document.querySelector('.img-upload__preview');
 sizeValue.value = '55%';
@@ -23,7 +23,7 @@ smallerBtn.addEventListener('click', () => {
   imgPreview.style.transform = `scale(${scaleValue}`;
 });
 
-biigerBtn.addEventListener('click', () => {
+biggerBtn.addEventListener('click', () => {
   if (value > 125) {
     value = 150;
   } else {
