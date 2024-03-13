@@ -1,5 +1,4 @@
 const bigPicture = document.querySelector('.big-picture');
-// const commentCount = document.querySelector('.social__comment-count');
 const commentList = document.querySelector('.social__comments');
 const commentsLoader = document.querySelector('.comments-loader');
 const body = document.querySelector('body');
@@ -73,8 +72,6 @@ const renderPictureDetails = ({ url, likes, description }) => {
 const renderFullPicture = (data) => {
   bigPicture.classList.remove('hidden');
   body.classList.add('modal-open');
-  // commentsLoader.classList.add('hidden');
-  // commentCount.classList.add('hidden');
   document.addEventListener('keydown', onEscKeyDown);
 
   renderPictureDetails(data);

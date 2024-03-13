@@ -1,5 +1,3 @@
-// import { renderPictures } from './render-picture.js';
-
 export async function getData(onSuccess) {
   await fetch('https://25.javascript.htmlacademy.pro/kekstagram/data')
     .then((response) => {
@@ -41,6 +39,3 @@ export const sendData = (onSuccess, onFail, body) => {
       onFail();
     });
 };
-//  eslint-disable-next-line no-console
-// console.log(getData);
-// getData();

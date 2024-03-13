@@ -1,7 +1,4 @@
-// import { hideBigPicture } from './full-picture.js';
-
 import { sendData } from './api.js';
-// import { onEscKeyDown } from './full-picture.js';
 import { hideModal } from './user-form.js';
 
 const form = document.querySelector('.img-upload__form');

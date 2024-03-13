@@ -7,8 +7,6 @@ sizeValue.value = '55%';
 let value = +sizeValue.value.slice(0, 2);
 let scaleValue = value/100;
 imgPreview.style.transform = `scale(${scaleValue}`;
-//  eslint-disable-next-line no-console
-// console.log(value, scaleValue);
 
 smallerBtn.addEventListener('click', () => {
   if (value < 50) {
@@ -17,8 +15,6 @@ smallerBtn.addEventListener('click', () => {
     value -= 25;
   }
   scaleValue = value/100;
-  //  eslint-disable-next-line no-console
-  // console.log(value, scaleValue);
   sizeValue.value = `${value}%`;
   imgPreview.style.transform = `scale(${scaleValue}`;
 });
@@ -30,8 +26,6 @@ biggerBtn.addEventListener('click', () => {
     value += 25;
   }
   scaleValue = value/100;
-  //  eslint-disable-next-line no-console
-  // console.log(value, scaleValue);
   sizeValue.value = `${value}%`;
   imgPreview.style.transform = `scale(${scaleValue}`;
 });
@@ -55,8 +49,6 @@ noUiSlider.create(sliderElement, {
 });
 sliderElement.noUiSlider.on('update', () => {
   valueElement.value = sliderElement.noUiSlider.get();
-  //  eslint-disable-next-line no-console
-  // console.log(valueElement.value);
 
   switch (inputValue) {
     case 'chrome':
@@ -89,8 +81,6 @@ function onFilterChange (evt) {
   if (evt.target.matches('input[type="radio"]')) {
     imgPreview.className = 'img-upload__preview';
     imgPreview.classList.add(`effects__preview--${evt.target.value}`);
-    //  eslint-disable-next-line no-console
-    // console.log(evt.target.value);
   }
 
   switch (evt.target.value) {

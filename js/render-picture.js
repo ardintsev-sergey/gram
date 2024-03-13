@@ -1,6 +1,7 @@
 import { renderFullPicture } from './full-picture.js';
 const commentCount = document.querySelector('.social__comment-count');
 const commentsLoader = document.querySelector('.comments-loader');
+const imgFilters = document.querySelector('.img-filters');
 
 commentCount.classList.remove('hidden');
 commentsLoader.classList.remove('hidden');
@@ -26,7 +27,7 @@ const createPhoto = (photo) => {
   return pictureElement;
 };
 
-const renderPictures = (pictures) => {
+const renderPictures = (pictures) =>  new Promise( (  ) => {
   const fragment = document.createDocumentFragment();
   pictures.forEach((picture) => {
     const pictureEl = createPhoto(picture);
@@ -34,6 +35,9 @@ const renderPictures = (pictures) => {
   });
 
   picturesList.append(fragment);
-};
+})
+  .then(
+    setTimeout(() => imgFilters.classList.remove('img-filters--inactive'), 1000)
+  );
 
 export  {renderPictures};
