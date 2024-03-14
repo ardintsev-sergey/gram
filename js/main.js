@@ -8,7 +8,18 @@ import './validate.js';
 import { setFormSubmit } from './validate.js';
 import { hideModal } from './user-form.js';
 import { getData } from './api.js';
-import { renderPictures } from './render-picture.js';
+import {  comparePopularPhoto, compareRandomPhoto, renderPictures, setDefaultSortClick, setPopularSortClick, setRandomSortClick } from './render-picture.js';
 
-getData((data) => renderPictures(data));
+
+getData((data) => {
+  renderPictures(data, 25);
+  setDefaultSortClick(() => renderPictures(data, 25));
+  setRandomSortClick(() => renderPictures(data, 10, compareRandomPhoto));
+  setPopularSortClick(() => renderPictures(data, 25, comparePopularPhoto));
+}
+  // (data) => sortBtn.addEventListener('click', ()=> {
+  //   renderPopularPhoto(data);
+  // })
+);
 setFormSubmit(hideModal);
+
