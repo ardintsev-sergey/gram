@@ -10,6 +10,7 @@ import { hideModal } from './user-form.js';
 import { getData } from './api.js';
 import {  comparePopularPhoto, compareRandomPhoto, renderPictures, setDefaultSortClick, setPopularSortClick, setRandomSortClick } from './render-picture.js';
 import { debounce } from './debounce.js';
+import './preview.js';
 const RERENDER_DELAY = 500;
 
 getData((data) => {
